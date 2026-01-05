@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huggability meter</title>
+</head>
+<body>
+    <div id="title">
+        <h1>Huggability Meter</h1>
+    </div>
+    
+    <span id="main-start">Enter a name below to view their Huggability!</span>
+    <form class="input-container form-inline" id="search-form">
+        <input type="text" id="name" name="name" placeholder="Enter name"> 
+        <input type="submit" value="Go!" id="submit">
+    </form>
+
+    <div class="gauge-container">
+    <svg class="gauge" viewBox="0 0 250 100">
+        <defs>
+            <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#CB4D4B"/>   <!-- red -->
+            <stop offset="50%" stop-color="yellow"/>    <!-- middle -->
+            <stop offset="100%" stop-color="#4BCB4D"/> <!-- green -->
+            </linearGradient>
+
+        </defs>
+
+        <!-- Arc from left to right, centered -->
+        <path d="M25 100 A100 100 0 0 1 225 100" 
+            fill="none" 
+            stroke="url(#gaugeGradient)" 
+            stroke-width="15" 
+            stroke-linecap="round"/>
+        
+        <!-- Needle centered at 125 (middle of 250) -->
+        <line x1="125" y1="100" x2="125" y2="20" 
+            stroke="black" 
+            stroke-width="4" 
+            class="needle" 
+            id="needle"/>
+        
+        <circle cx="125" cy="100" r="5" fill="black"/>
+
+    </svg>
+    </div>
+    <div id="result">
+        <div id="score"></div>
+        <div id="score-comment"></div>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
